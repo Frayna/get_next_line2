@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strsubfree.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgourran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 02:01:41 by pgourran          #+#    #+#             */
-/*   Updated: 2016/05/25 02:08:14 by pgourran         ###   ########.fr       */
+/*   Created: 2016/05/25 23:02:38 by pgourran          #+#    #+#             */
+/*   Updated: 2016/05/25 23:18:42 by pgourran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "libft/libft.h"
-
-typedef struct		s_gnl
+char	*ft_strsub_free(char *s, unsigned int start, size_t len)
 {
-	int				ref;
-	char			*str;
-	struct s_gnl	*next;
-}					t_gnl;
+	char	*out;
+	int		i;
 
-int					get_next_line(int const fd, char **line);
-#endif
+	i = 0;
+	if ((out = ft_strnew(len)))
+	{
+		while (len-- > 0)
+			out[i++] = s[start++];
+		out[i] = '\0';
+		if (s)
+			free(s);
+		return (out);
+	}
+	return (NULL);
+}

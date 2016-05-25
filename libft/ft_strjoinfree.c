@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgourran <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 02:01:41 by pgourran          #+#    #+#             */
-/*   Updated: 2016/05/25 02:08:14 by pgourran         ###   ########.fr       */
+/*   Created: 2016/05/25 22:56:05 by pgourran          #+#    #+#             */
+/*   Updated: 2016/05/25 23:24:08 by pgourran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 3
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "libft/libft.h"
-
-typedef struct		s_gnl
+char	*ft_strjoin_free(char *s1, char *s2, char mode)
 {
-	int				ref;
-	char			*str;
-	struct s_gnl	*next;
-}					t_gnl;
+	char	*out;
 
-int					get_next_line(int const fd, char **line);
-#endif
+	if ((out = ft_strjoin(s1, s2)) && mode >= 0 && mode <= 3)
+	{
+		if (mode == 1)
+			free(s1);
+		if (mode == 2)
+			free(s2);
+		if (mode == 3)
+		{
+			free(s1);
+			free(s2);
+		}
+		return (out);
+	}
+	return (NULL);
+}

@@ -6,7 +6,7 @@
 #    By: pgourran <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/30 21:57:41 by pgourran          #+#    #+#              #
-#    Updated: 2015/12/02 20:27:49 by pgourran         ###   ########.fr        #
+#    Updated: 2016/05/25 23:08:54 by pgourran         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC		= ft_atoi.c\
 		  ft_putstr.c\
 		  ft_putstr_fd.c\
 		  ft_strjoin.c\
+		  ft_strjoinfree.c\
 		  ft_strcat.c\
 		  ft_strchr.c\
 		  ft_strclr.c\
@@ -69,6 +70,7 @@ SRC		= ft_atoi.c\
 		  ft_strrchr.c\
 		  ft_strstr.c\
 		  ft_strsub.c\
+		  ft_strsubfree.c\
 		  ft_strtrim.c\
 		  ft_tolower.c\
 		  ft_toupper.c\
